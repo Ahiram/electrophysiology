@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  notebook:
+    image: jupyter/datascience-notebook
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - ./work:/home/jovyan/work
+      
+    command: bash -c "pip install opencv-python && start-notebook.sh --NotebookApp.token=''"
